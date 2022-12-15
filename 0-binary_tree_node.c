@@ -10,22 +10,23 @@
 
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 {
+	/* declaration of the new node with its data type */
+	binary_tree_t *newNode;
 
-    /* declaration and allocation of memory for the new node */
-    binary_tree_t *new_node = malloc(sizeof(binary_tree_t));
+	/* allocate memory space for that node */
+	newNode = (binary_tree_t *)malloc(sizeof(binary_tree_t));
 
+	if (newNode == NULL)
+	{
+		return (NULL);
+	}
 
-    if (new_node == NULL)
-    {
-        return NULL;
-    }
+	/* assign values to the properties of the node */
+	newNode->parent = parent;
+	newNode->n = value;
+	newNode->left = NULL;
+	newNode->right = NULL;
 
-    /* assign values to the properties of the node */
-    new_node->parent = parent;
-    new_node->left = NULL;
-    new_node->right = NULL;
-    new_node->value = value;
-    
-   /* return a pointer to the node */
-    return new_node;
+	/* return a pointer to the node */
+	return (newNode);
 }
